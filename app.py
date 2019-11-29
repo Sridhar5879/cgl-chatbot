@@ -102,25 +102,26 @@ app = Flask(__name__)
 def order_status():
     ssss = ""  
     if request.method == 'POST':
-      if ssss != "":
+      if ssss == "":
           #Taking the input query from user and converting it to an usable string
           userid = int(request.form.get('ui_query'))
           if userid in list(SD['ID']):
               Retailer = SD[SD['ID'] == userid]
               ssss = userid
-      else:
-          aa = {}
-          aa['input'] = int(request.form.get('ui_query'))
-          aa['result'] = "Sorry but your User Id did not match with any of our records, please try again"
-          print('Sorry but your User Id did not match with any of our records, please try again')
-          return aa
+          else:
+              aa = {}
+              aa['input'] = int(request.form.get('ui_query'))
+              aa['result'] = "Sorry but your User Id did not match with any of our records, please try again"
+              print('Sorry but your User Id did not match with any of our records, please try again')
+              return aa
       
-      aa = {}
-      aa['sss'] = ssss
-      aa['input'] = int(request.form.get('ui_query'))
-      aa['result'] = "You have successfully logged in! How can I help you?"
-      return aa
-      query1 = pd.Series(query)
+          aa = {}
+          aa['sss'] = ssss
+          aa['input'] = int(request.form.get('ui_query'))
+          aa['result'] = "You have successfully logged in! How can I help you?"
+          return aa
+      else:
+      query1 = pd.Series(ui_query)
       query2 = query1.apply(lambda x: " ".join([Word(word).lemmatize() for word in x.split()]))
       query2=  [w for w in query2 if not w in stop]
     
