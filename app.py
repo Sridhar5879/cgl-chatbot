@@ -151,8 +151,8 @@ def order_status():
               aa['result'] = dfa[ChatReply[2]]
               print('\n','NEAREST MATCH','\n''\n',dfq[ChatReply[2]],'\n',dfa[ChatReply[2]],'\n','\n','DO YOU MEAN?','\n',dfq[j[2]],'\n',dfq[l[2]])
           return aa
-  else:
-      return render_template('chat.html')
+     else:
+         return render_template('chat.html')
 
 if __name__ == "__main__":
   app.run(host='127.0.0.1')
