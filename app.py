@@ -102,7 +102,7 @@ app = Flask(__name__)
 def order_status():
     #ssss = ""  
     if request.method == 'POST':
-      if request.form.get('sss') == "":
+      if request.form.get('sss') != "":
           #Taking the input query from user and converting it to an usable string
           userid = int(request.form.get('ui_query'))
           if userid in list(SD['ID']):
@@ -110,6 +110,7 @@ def order_status():
               ssss = userid
           else:
               aa = {}
+              aa['sss'] = ""
               aa['input'] = int(request.form.get('ui_query'))
               aa['result'] = "Sorry but your User Id did not match with any of our records, please try again"
               print('Sorry but your User Id did not match with any of our records, please try again')
