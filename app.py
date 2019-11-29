@@ -121,36 +121,36 @@ def order_status():
           aa['result'] = "You have successfully logged in! How can I help you?"
           return aa
       else:
-      query1 = pd.Series(ui_query)
-      query2 = query1.apply(lambda x: " ".join([Word(word).lemmatize() for word in x.split()]))
-      query2=  [w for w in query2 if not w in stop]
-    
-      # Converting query2 into a string
-      k=convert(query2)
-      #Implementation fuzzywuzzy algorithm to find the closest match
-      from fuzzywuzzy import process
-      ## To Get Related questions based on ratio
-      choices_dict = {idx: el for idx, el in enumerate(dfq_1)}
-      Ratios = process.extract(k,choices_dict,limit=3)
-      ChatReply=(tuple(Ratios[0]))
-      j=(tuple(Ratios[1]))
-      l=(tuple(Ratios[2]))
-      if ChatReply[1]<70:
-          aa = {}
-          aa['input'] = request.form.get('ui_query')
-          aa['result'] = "Sorry but your query did not match with any of our records, please try with another query"
-          
-      elif ChatReply[1]>=70 and ChatReply[2] <= 48:
-          aa = {}
-          aa['input'] = request.form.get('ui_query')
-          aa['result'] = dfa[ChatReply[2]]
-          
-      else:
-          aa = {}
-          aa['input'] = request.form.get('ui_query')
-          aa['result'] = dfa[ChatReply[2]]
-          print('\n','NEAREST MATCH','\n''\n',dfq[ChatReply[2]],'\n',dfa[ChatReply[2]],'\n','\n','DO YOU MEAN?','\n',dfq[j[2]],'\n',dfq[l[2]])
-      return aa
+          query1 = pd.Series(ui_query)
+          query2 = query1.apply(lambda x: " ".join([Word(word).lemmatize() for word in x.split()]))
+          query2=  [w for w in query2 if not w in stop]
+        
+          # Converting query2 into a string
+          k=convert(query2)
+          #Implementation fuzzywuzzy algorithm to find the closest match
+          from fuzzywuzzy import process
+          ## To Get Related questions based on ratio
+          choices_dict = {idx: el for idx, el in enumerate(dfq_1)}
+          Ratios = process.extract(k,choices_dict,limit=3)
+          ChatReply=(tuple(Ratios[0]))
+          j=(tuple(Ratios[1]))
+          l=(tuple(Ratios[2]))
+          if ChatReply[1]<70:
+              aa = {}
+              aa['input'] = request.form.get('ui_query')
+              aa['result'] = "Sorry but your query did not match with any of our records, please try with another query"
+              
+          elif ChatReply[1]>=70 and ChatReply[2] <= 48:
+              aa = {}
+              aa['input'] = request.form.get('ui_query')
+              aa['result'] = dfa[ChatReply[2]]
+              
+          else:
+              aa = {}
+              aa['input'] = request.form.get('ui_query')
+              aa['result'] = dfa[ChatReply[2]]
+              print('\n','NEAREST MATCH','\n''\n',dfq[ChatReply[2]],'\n',dfa[ChatReply[2]],'\n','\n','DO YOU MEAN?','\n',dfq[j[2]],'\n',dfq[l[2]])
+          return aa
   else:
       return render_template('chat.html')
 
