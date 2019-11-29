@@ -100,11 +100,14 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET','POST'])
 def order_status():
-  if request.method == 'POST':
-      #Taking the input query from user and converting it to an usable string
-      userid = int(request.form.get('ui_query'))
-      if userid in list(SD['ID']):
-          Retailer = SD[SD['ID'] == userid]
+    ssss = ""  
+    if request.method == 'POST':
+      if ssss != "":
+          #Taking the input query from user and converting it to an usable string
+          userid = int(request.form.get('ui_query'))
+          if userid in list(SD['ID']):
+              Retailer = SD[SD['ID'] == userid]
+              ssss = userid
       else:
           aa = {}
           aa['input'] = int(request.form.get('ui_query'))
@@ -113,6 +116,7 @@ def order_status():
           return aa
       
       aa = {}
+      aa['sss'] = ssss
       aa['input'] = int(request.form.get('ui_query'))
       aa['result'] = "You have successfully logged in! How can I help you?"
       return aa
