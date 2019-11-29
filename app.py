@@ -101,7 +101,7 @@ app = Flask(__name__)
 @app.route('/', methods=['GET','POST'])
 def order_status():
     #ssss = ""  
-    if request.method = 'POST':
+    if request.method == 'POST':
       if request.form.get('sss') != "":
           #Taking the input query from user and converting it to an usable string
           userid = int(request.form.get('ui_query'))
