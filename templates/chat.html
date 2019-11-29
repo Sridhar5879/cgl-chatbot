@@ -61,8 +61,8 @@
         contentType: 'application/x-www-form-urlencoded',
         data: dataCB,
         success: function(data, textStatus, jqXHR) {
-          console.log(data)
-          console.info(data);
+          console.log(dataCB);
+          console.log(data);
 	  $("#user_id").val(data.sss)
           setTimeout(function() {
             $("#loading").hide()
