@@ -113,7 +113,7 @@ def order_status():
               aa['sss'] = ""
               aa['input'] = int(request.form.get('ui_query'))
               aa['result'] = aa['sss']#"Sorry but your User Id did not match with any of our records, please try again"
-              print('Sorry but your User Id did not match with any of our records, please try again')
+              #print('Sorry but your User Id did not match with any of our records, please try again')
               return aa
       
           aa = {}
