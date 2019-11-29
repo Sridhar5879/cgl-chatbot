@@ -18,7 +18,7 @@
                 <div class="incoming_msg_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
                 <div class="received_msg">
                   <div class="received_withd_msg">
-                    <p>Hi! Welcome to Crompton Greaves! Please enter your user id: </p>
+                    <p>You can query about Crompton Greaves Products or Reports</p>
                     <!-- <span class="time_date"> 11:01 AM    |    June 9</span> -->
                   </div>
                 </div>
@@ -32,7 +32,8 @@
             <div class="type_msg">
               <div class="input_msg_write">
                 <input type="text" onkeydown="if (event.keyCode == 13) { $('#sendMessage').click() ; return false; }" autofocus id="inputValue" class="write_msg" placeholder="Type a message" / style="padding: 15px;">
-                <button class="msg_send_btn" id="sendMessage" type="button"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
+                <input type='text' id="user_id">
+		<button class="msg_send_btn" id="sendMessage" type="button"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
               </div>
             </div>
           </div>
@@ -51,15 +52,18 @@
     $("#inputValue").val('')
     console.log(inputValue)
     loadOutGoingMessage(inputValue)
+    dataCB = {ui_query: inputValue, sss : $("#user_id").val()};
+    console.log("dataCB :: ", dataCB )
+	
     $.ajax({
         url: '/',
         type: 'POST',
         contentType: 'application/x-www-form-urlencoded',
-        data: {ui_query: inputValue},
+        data: dataCB,
         success: function(data, textStatus, jqXHR) {
           console.log(data)
           console.info(data);
-          $("#ssss").val(data.sss)
+	  $("#user_id").val(data.sss)
           setTimeout(function() {
             $("#loading").hide()
             loadIncomingMessage(data)
