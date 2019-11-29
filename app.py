@@ -105,7 +105,10 @@ def order_status():
       if userid in list(SD['ID']):
           Retailer = SD[SD['ID'] == userid]
       else:
-          aa = "Incorrect Userid: Please enter the correct one: "
+          aa = {}
+          aa['input'] = int(request.form.get('ui_query'))
+          aa['result'] = "Sorry but your User Id did not match with any of our records, please try again"
+          print('Sorry but your User Id did not match with any of our records, please try again')
           return aa
       #if userid in list(SD['ID']):
           #Retailer = SD[SD['ID'] == userid]
