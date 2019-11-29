@@ -105,7 +105,7 @@ def order_status():
       if userid in list(SD['ID']):
           Retailer = SD[SD['ID'] == userid]
       else:
-          aa = aa = "Incorrect Userid: Please enter the correct one: "
+          aa = "Incorrect Userid: Please enter the correct one: "
           return aa
       #if userid in list(SD['ID']):
           #Retailer = SD[SD['ID'] == userid]
