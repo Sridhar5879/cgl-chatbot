@@ -119,7 +119,7 @@ def order_status():
           aa = {}
           aa['sss'] = ssss
           aa['input'] = int(request.form.get('ui_query'))
-          aa['result'] = "You have successfully logged in! How can I help you?"
+          aa['result'] = "<a href='/app/book2.xlsx/'>Visit our HTML tutorial</a>"
           return aa
       else:
           query1 = pd.Series(request.form.get('ui_query'))
