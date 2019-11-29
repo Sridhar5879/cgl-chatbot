@@ -100,7 +100,7 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET','POST'])
 def order_status():
-    #ssss = ""  
+    ssss = ""  
     if request.method == 'POST':
       if ssss == "":
           #Taking the input query from user and converting it to an usable string
