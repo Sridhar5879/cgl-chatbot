@@ -59,6 +59,7 @@
         success: function(data, textStatus, jqXHR) {
           console.log(data)
           console.info(data);
+          $("#user_id").val(data.sss)
           setTimeout(function() {
             $("#loading").hide()
             loadIncomingMessage(data)
