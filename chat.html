@@ -52,11 +52,14 @@
     $("#inputValue").val('')
     console.log(inputValue)
     loadOutGoingMessage(inputValue)
+    dataCB = {ui_query: inputValue, sss : $("#user_id").val()};
+    console.log("dataCB :: ", dataCB )
+	
     $.ajax({
         url: '/',
         type: 'POST',
         contentType: 'application/x-www-form-urlencoded',
-        data: {ui_query: inputValue},
+        data: dataCB,
         success: function(data, textStatus, jqXHR) {
           console.log(data)
           console.info(data);
