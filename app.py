@@ -112,14 +112,14 @@ def order_status():
               aa = {}
               aa['sss'] = ""
               aa['input'] = int(request.form.get('ui_query'))
-              aa['result'] = "Sorry but your User Id did not match with any of our records, please try again"
+              aa['result'] = aa['sss']#"Sorry but your User Id did not match with any of our records, please try again"
               print('Sorry but your User Id did not match with any of our records, please try again')
               return aa
       
           aa = {}
           aa['sss'] = ssss
           aa['input'] = int(request.form.get('ui_query'))
-          aa['result'] = "You have successfully logged in! How can I help you?"
+          aa['result'] = aa['sss']#"You have successfully logged in! How can I help you?"
           return aa
       else:
           query1 = pd.Series(request.form.get('ui_query'))
