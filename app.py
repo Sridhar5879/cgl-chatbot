@@ -110,11 +110,12 @@ def order_status():
           aa['result'] = "Sorry but your User Id did not match with any of our records, please try again"
           print('Sorry but your User Id did not match with any of our records, please try again')
           return aa
-      #if userid in list(SD['ID']):
-          #Retailer = SD[SD['ID'] == userid]
-          
-      #else:
-          #print("Please contact Customer care for your correct user id. Thank you! \n")
+      
+      aa = {}
+      aa['input'] = int(request.form.get('ui_query'))
+      aa['result'] = "You have successfully logged in! How can I help you?"
+      print('new Sorry but your User Id did not match with any of our records, please try again')
+      return aa
       query1 = pd.Series(query)
       query2 = query1.apply(lambda x: " ".join([Word(word).lemmatize() for word in x.split()]))
       query2=  [w for w in query2 if not w in stop]
