@@ -100,7 +100,7 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET','POST'])
 def order_status():
-    ssss = ""  
+    #ssss = ""  
     if request.method == 'POST':
       if ssss == "":
           #Taking the input query from user and converting it to an usable string
@@ -151,7 +151,7 @@ def order_status():
               aa['result'] = dfa[ChatReply[2]]
               print('\n','NEAREST MATCH','\n''\n',dfq[ChatReply[2]],'\n',dfa[ChatReply[2]],'\n','\n','DO YOU MEAN?','\n',dfq[j[2]],'\n',dfq[l[2]])
           return aa
-    else:
+     else:
          return render_template('chat.html')
 
 if __name__ == "__main__":
