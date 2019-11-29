@@ -121,7 +121,7 @@ def order_status():
           aa['result'] = "You have successfully logged in! How can I help you?"
           return aa
       else:
-          query1 = pd.Series(ui_query)
+          query1 = pd.Series(request.form.get('ui_query'))
           query2 = query1.apply(lambda x: " ".join([Word(word).lemmatize() for word in x.split()]))
           query2=  [w for w in query2 if not w in stop]
         
