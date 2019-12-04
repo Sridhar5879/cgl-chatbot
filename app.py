@@ -123,13 +123,13 @@ def order_status():
           append_df_to_excel('Book2.xlsx', Retailer, header=1, index=False, startrow=0, sheet_name='Data')
           names = list(Retailer['Name'])
           name =names[0]
-          if userid == 932245:
-              result = "Hi %s - US Sales, Welcome to Sysco. Please select a report from the following <a href = 'https://github.com/Sridhar5879/chatbot_dev/blob/master/app/Sales Report US.xlsx' target='_blank'>US_SalesReport </a> <a href = 'https://github.com/Sridhar5879/chatbot_dev/blob/master/Sales report NW.xlsx?raw=true'>NorthEast_US_SalesReport</a> <a href = 'https://github.com/Sridhar5879/chatbot_dev/blob/master/Sales report S.xlsx?raw=true'>South_US_SalesReport</a> <a href = 'https://github.com/Sridhar5879/chatbot_dev/blob/master/Sales report MW.xlsx?raw=true'>MidWest_US_SalesReport</a> <a href = 'https://github.com/Sridhar5879/chatbot_dev/blob/master/Sales report W.xlsx?raw=true'>West_US_SalesReport</a> "%name
-          elif userid == 941795:
+          if userid == 181800:
+              result = "Hi %s - US Sales, Welcome to Sysco. Please select a report from the following <a href = 'https://github.com/Sridhar5879/chatbot_dev/blob/master/app/Sales Report US.xlsx' target='_blank'>US_SalesReport </a> <a href = 'https://github.com/Sridhar5879/chatbot_dev/blob/master/Sales report NE.xlsx?raw=true'>NorthEast_US_SalesReport</a> <a href = 'https://github.com/Sridhar5879/chatbot_dev/blob/master/Sales report S.xlsx?raw=true'>South_US_SalesReport</a> <a href = 'https://github.com/Sridhar5879/chatbot_dev/blob/master/Sales report MW.xlsx?raw=true'>MidWest_US_SalesReport</a> <a href = 'https://github.com/Sridhar5879/chatbot_dev/blob/master/Sales report W.xlsx?raw=true'>West_US_SalesReport</a> "%name
+          elif userid == 454500:
               result = "Hi %s - South US Sales, Welcome to Sysco. Please click the link for <a href = 'https://github.com/Sridhar5879/chatbot_dev/blob/master/Sales report S.xlsx?raw=true'>South_US_SalesReport</a> "%name
-          elif userid == 934771:
+          elif userid == 322300:
               result = "Hi %s - NorthEast_US_Sales, Welcome to Sysco. Please click the link for <a href = 'https://github.com/Sridhar5879/chatbot_dev/blob/master/Sales report NE.xlsx?raw=true'>NorthEast_US_SalesReport</a> "%name
-          elif userid == 415250:
+          elif userid == 349000:
               result = "Hi %s - MidWest_US Sales, Welcome to Sysco. Please click the link for <a href = 'https://github.com/Sridhar5879/chatbot_dev/blob/master/Sales report MW.xlsx?raw=true'>MidWest_US_SalesReport</a> "%name
           else:
               result = "Hi %s - Retailer, Welcome to Sysco. Please click the link for <a href = 'https://github.com/Sridhar5879/chatbot_dev/blob/master/Sales report W.xlsx?raw=true'>West_US_SalesReport</a> "%name
