@@ -75,7 +75,7 @@ def append_df_to_excel(filename, df, sheet_name='Sheet1', startrow=2,truncate_sh
     
 #Reading the document and the relevant fields
 df=pd.read_excel("chatbot - Sysco.xlsx")
-SD = pd.read_excel("CGL Retailer Details.xlsx")
+SD = pd.read_excel("SYS Retailer Details.xlsx")
 dfq=df['Question']
 dfa=df['Answer']
 
@@ -132,7 +132,7 @@ def order_status():
           elif userid == 349000:
               result = "Hi %s - MidWest_US Sales, Welcome to Sysco. Please click the link for <a href = 'https://github.com/Sridhar5879/cgl-chatbot/blob/master/SalesReportMW.xlsx?raw=true'>MidWest_US_SalesReport</a> "%name
           else:
-              result = "Hi %s - Retailer, Welcome to Sysco. Please click the link for <a href = 'https://github.com/Sridhar5879/cgl-chatbot/blob/master/SalesReportW.xlsx?raw=true'>West_US_SalesReport</a> "%name
+              result = "Hi %s - Retailer, Welcome to Sysco. We are in the process to provide you reports. Soon you will be intimated"%name
           aa['result'] = result
           return aa
       except ValueError:
