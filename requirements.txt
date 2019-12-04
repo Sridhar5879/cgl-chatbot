@@ -50,3 +50,4 @@ wordnet==0.0.1b2
 nltk==3.4.5
 textblob==0.15.2
 corpora==1.0
+openpyxl==3.0.2
