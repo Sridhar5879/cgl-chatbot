@@ -131,8 +131,8 @@ def order_status():
               result = "Hi %s - NorthEast_US_Sales, Welcome to Sysco. Please click the link for <a href = 'https://github.com/Sridhar5879/chatbot_dev/blob/master/Sales report NE.xlsx?raw=true'>NorthEast_US_SalesReport</a> "%name
           elif userid == 415250:
               result = "Hi %s - MidWest_US Sales, Welcome to Sysco. Please click the link for <a href = 'https://github.com/Sridhar5879/chatbot_dev/blob/master/Sales report MW.xlsx?raw=true'>MidWest_US_SalesReport</a> "%name
-          elif userid == 415368:
-              result = "Hi %s - West_US Sales, Welcome to Sysco. Please click the link for <a href = 'https://github.com/Sridhar5879/chatbot_dev/blob/master/Sales report W.xlsx?raw=true'>West_US_SalesReport</a> "%name
+          else:
+              result = "Hi %s - Retailer, Welcome to Sysco. Please click the link for <a href = 'https://github.com/Sridhar5879/chatbot_dev/blob/master/Sales report W.xlsx?raw=true'>West_US_SalesReport</a> "%name
           aa['result'] = result
           return aa
       except ValueError:
