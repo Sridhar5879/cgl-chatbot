@@ -7,18 +7,26 @@
   </head>
   <body>
     <div id="chat_launcher" onclick="$('#chat_frame').toggle();"><i class="fa fa-envelope"></i></div>
-    <h3 class=" text-center">Crompton Greaves Chat Bot</h3>
-    <div class="container__" id="chat_frame" style="display: none;">
+	<div class="bgimg-1">
+	<div class="main">
+	<div class="logo-1"><img src="https://github.com/Sridhar5879/chatbot_dev/blob/master/templates/TW-logo-01.png?raw=true" /></div>
+  <div class="caption">
+     <h2 class=" text-center">Evelyn</h2>
+  </div>
+  <div class="logo-2"><img src="https://github.com/Sridhar5879/chatbot_dev/blob/master/templates/crompton-greaves-logo_landscape_full-colour.png?raw=true" /> </div>
+  </div>
+   <div class="container__" id="chat_frame" style="display: none;">
       <div class="messaging">
         <div class="inbox_msg">
           <div class="mesgs">
-            <span id="close" style="float: right; font-weight: bold; padding: 2px; border: 1px solid #ccc; border-radius: 5px;cursor: pointer;">X</span>
+            <span id="close" style="float: right; font-weight: bold; padding: 2px; font-size: 20px;border-radius: 5px;cursor: pointer;">X</span>
             <div class="msg_history" id="msg_history">
               <div class="incoming_msg">
                 <div class="incoming_msg_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
                 <div class="received_msg">
                   <div class="received_withd_msg">
-                    <p>You can query about Crompton Greaves Products or Reports</p>
+                    <p>Hello! I'm Chatbot. Glad to be your virtual assitant to help you with Sysco products and reports.</p>
+                    <p style="margin-top: 10px;">Firstly, I would like to know if you are a Customer or Distributor or Retailer or Sysco Executive</p>
                     <!-- <span class="time_date"> 11:01 AM    |    June 9</span> -->
                   </div>
                 </div>
@@ -32,13 +40,16 @@
             <div class="type_msg">
               <div class="input_msg_write">
                 <input type="text" onkeydown="if (event.keyCode == 13) { $('#sendMessage').click() ; return false; }" autofocus id="inputValue" class="write_msg" placeholder="Type a message" / style="padding: 15px;">
-                <button class="msg_send_btn" id="sendMessage" type="button"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
+                <input type='text' id="user_id">
+		<button class="msg_send_btn" id="sendMessage" type="button"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+</div>   
+   
   </body>
 </html>
 
@@ -51,14 +62,18 @@
     $("#inputValue").val('')
     console.log(inputValue)
     loadOutGoingMessage(inputValue)
+    dataCB = {ui_query: inputValue};
+    console.log("dataCB :: ", dataCB )
+	
     $.ajax({
         url: '/',
         type: 'POST',
         contentType: 'application/x-www-form-urlencoded',
-        data: {ui_query: inputValue},
+        data: dataCB,
         success: function(data, textStatus, jqXHR) {
           console.log(data)
           console.info(data);
+	  $("#user_id").val(data.sss)
           setTimeout(function() {
             $("#loading").hide()
             loadIncomingMessage(data)
@@ -192,7 +207,7 @@
     border: 1px solid #c4c4c4;
     margin: 0 0 0 66%;
     padding: 30px 15px 0 25px;
-    width: 33%;
+    width: 33%;background: #fff;
   }
    .sent_msg p {
     background: #05728f none repeat scroll 0 0;
@@ -250,4 +265,31 @@
     color: white;
     text-align: center;
   }
+  
+  /** my styles ****/
+ body {
+    background-image: url(https://github.com/Sridhar5879/chatbot_dev/blob/master/templates/chat.jpg?raw=true);
+    height: auto; background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.bgimg-1{
+    position: relative;
+}
+.main{margin: 0 auto;width: 1170px;/*position: absolute;*/}
+.logo-1, .caption, .logo-2{float: left;}
+.logo-1{width:215px; height:45px;margin: 25px;}
+.text-center {
+    text-align: center;
+    margin-left: 98px;
+    color: #fff;
+    text-shadow: 6px 5px 5px #2adf09;
+    background: #00000070;
+    padding: 5px;
+    margin-top: 25px;
+}
+.logo-2{width:215px; height:75px;    margin-left: 130px;
+    margin-top: 15px;}
+	.logo-2 img{background: #000000a6;
+    padding: 10px;}
 </style>
