@@ -1,20 +1,48 @@
 <!------ Include the above in your HEAD tag ---------->
 <html>
   <head>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" type="text/css" rel="stylesheet" >
+    <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" type="text/css" rel="stylesheet" >
+  <style type="text/css">
+    /** my styles ****/
+  .navbar-default {
+background-color: #f8f8f80a;
+    border-color: #e7e7e700;
+}
+@media (min-width: 768px){
+.navbar-right, .navbar-right img{
+    margin-right: -20px !important;float: right;
+}
+.col-sm-6{margin-top: 20px;}
+}
+
+ body {
+    background-image: url(https://github.com/Sridhar5879/cgl-chatbot/blob/master/templates/chat.jpg?raw=true);
+    height: auto; background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+  </style>
   </head>
   <body>
+ 
+<div class="container">
+<div class="row">
+    <div class="col-sm-6">
+       <img src="https://github.com/Sridhar5879/cgl-chatbot/blob/master/templates/sysco-logo.png?raw=true" width="180px"/>
+    </div>
+    <div class="col-sm-6 navbar-right"> 
+      <img src="Techwave-01.png" width="275px">
+    </div>
+      </div>
+  </div>
     <div id="chat_launcher" onclick="$('#chat_frame').toggle();"><i class="fa fa-envelope"></i></div>
-	<div class="bgimg-1">
-	<div class="main">
-	<div class="logo-1"><img src="https://github.com/Sridhar5879/cgl-chatbot/blob/master/templates/sysco-logo.png?raw=true" /> </div>
-  <div class="caption">
-     <h2 class=" text-center"></h2>
-  </div>
-  </div>
-<div class="logo-2"><img src="https://github.com/Sridhar5879/cgl-chatbot/blob/master/templates/Techwave-01.png?raw=true" /> </div>
+	
    <div class="container__" id="chat_frame" style="display: none;">
       <div class="messaging">
         <div class="inbox_msg">
@@ -40,6 +68,7 @@
             <div class="type_msg">
               <div class="input_msg_write">
                 <input type="text" onkeydown="if (event.keyCode == 13) { $('#sendMessage').click() ; return false; }" autofocus id="inputValue" class="write_msg" placeholder="Type a message" / style="padding: 15px;">
+                <input type='text' id="user_id">
 		<button class="msg_send_btn" id="sendMessage" type="button"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
               </div>
             </div>
@@ -47,7 +76,6 @@
         </div>
       </div>
     </div>
-</div>   
    
   </body>
 </html>
@@ -266,31 +294,4 @@
     text-align: center;
   }
   
-  /** my styles ****/
- body {
-    background-image: url(https://github.com/Sridhar5879/cgl-chatbot/blob/master/templates/chat.jpg?raw=true);
-    height: auto; background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-.caption{display:none;}
-.bgimg-1{
-    position: relative;
-}
-.main{margin: 0 auto;width: 1170px;/*position: absolute;*/}
-.logo-1, .caption{float: left;}
-.logo-1{width:180px; height:45px;margin: 25px;}
-.text-center {
-    text-align: center;
-    margin-left: 98px;
-    color: #fff;
-    text-shadow: 6px 5px 5px #2adf09;
-    background: #00000070;
-    padding: 5px;
-    margin-top: 25px;
-}
-/**.logo-2{width:215px; height:auto;margin-left:95px;clear: both;position: absolute;
-    margin-top:590px;}
-	.logo-2 img{padding: 10px;}**/
-.logo-2{width: 295px;height: auto;margin-left: 1040px;clear: both;position: absolute;margin-top:35px;float: left;}
 </style>
